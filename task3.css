@@ -1,0 +1,197 @@
+
+:root {
+  --primary: #526B5C;
+  --primary-dark: #344B3C;
+  --accent: #E8C9A5;
+  --background: #F7F5F0;
+  --surface: #FFFFFF;
+  --text: #293A30;
+  --muted: #7A8A80;
+  --border: #DDE5DC;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+.reservation-card {
+  max-width: 850px;
+  background: var(--surface);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(41, 58, 48, 0.12);
+}
+
+.reservation-header {
+  background: var(--primary);
+  color: white;
+  padding: 40px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.reservation-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.header-description {
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 500px;
+  margin-bottom: 0;
+}
+
+.reservation-form {
+  padding: 40px;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+
+.form-label,
+legend.form-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background-color: #FAFBF9;
+  color: var(--text);
+  padding: 13px 15px;
+  font-size: 13px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(82, 107, 92, 0.15);
+  background-color: white;
+}
+
+.form-check {
+  padding-left: 1.7em;
+}
+
+.form-check-input {
+  cursor: pointer;
+  border-color: #A6B8AA;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-check-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(82, 107, 92, 0.18);
+}
+
+.form-check-label {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.seating-section {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.btn-reserve {
+  background: var(--primary);
+  color: white;
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-reserve:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+.btn-clear {
+  background: white;
+  color: var(--primary-dark);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-clear:hover {
+  background: #EEF3EE;
+  border-color: var(--primary-dark);
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+
+@media (max-width: 767.98px) {
+
+  .reservation-card {
+    border-radius: 16px;
+  }
+
+  .reservation-header {
+    padding: 28px 22px;
+  }
+
+  .reservation-header h1 {
+    font-size: 24px;
+  }
+
+  .reservation-form {
+    padding: 25px 20px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+
+  .btn-reserve,
+  .btn-clear {
+    width: 100%;
+  }
+
+}

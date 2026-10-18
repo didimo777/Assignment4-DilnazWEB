@@ -1,0 +1,212 @@
+
+
+:root {
+  --green: #0F6B5F;
+  --yellow: #F2A93B;
+  --dark: #16302B;
+  --background: #F4F7F5;
+  --light-green: #E6EFEC;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background: var(--background);
+  color: var(--dark);
+}
+
+
+.booking-card {
+  max-width: 850px;
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(15, 107, 95, 0.15);
+}
+
+.booking-header {
+  background: var(--green);
+  color: white;
+  padding: 28px 35px;
+}
+
+.booking-header h1 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.booking-form {
+  padding: 35px;
+}
+
+.trip-switch {
+  display: inline-flex;
+  border: 1px solid var(--green);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.trip-btn {
+  border: 0;
+  border-radius: 0;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  background: white;
+}
+
+.btn-check:checked + .trip-btn {
+  background: var(--green);
+  color: white;
+}
+
+.trip-btn:hover {
+  background: var(--light-green);
+  color: var(--green);
+}
+
+.btn-check:checked + .trip-btn:hover {
+  background: var(--green);
+  color: white;
+}
+
+.form-label,
+legend.form-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #D8E5E0;
+  background-color: var(--background);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--dark);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(15, 107, 95, 0.12);
+  background-color: white;
+}
+
+.form-floating > .form-control {
+  height: 65px;
+  min-height: 65px;
+}
+
+.form-floating > label {
+  font-size: 12px;
+  color: #687C76;
+}
+
+.form-check-label {
+  font-size: 13px;
+}
+
+.form-check-input {
+  border-color: #A9BDB5;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(15, 107, 95, 0.15);
+}
+
+.input-group-text {
+  background: var(--green);
+  color: white;
+  border: 1px solid var(--green);
+  border-radius: 10px 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input-group .form-control {
+  border-radius: 0 10px 10px 0;
+}
+
+
+.btn-clear,
+.btn-find {
+  border-radius: 13px;
+  padding: 13px 25px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.btn-clear {
+  background: white;
+  color: var(--dark);
+  border: 1px solid var(--green);
+}
+
+.btn-clear:hover {
+  background: var(--light-green);
+  border-color: var(--green);
+}
+
+.btn-find {
+  background: var(--yellow);
+  color: var(--dark);
+  border: 1px solid var(--yellow);
+}
+
+.btn-find:hover {
+  background: #E69A2B;
+  color: var(--dark);
+}
+
+
+@media (max-width: 767.98px) {
+
+  .booking-card {
+    border-radius: 15px;
+  }
+
+  .booking-header {
+    padding: 22px 20px;
+  }
+
+  .booking-header h1 {
+    font-size: 19px;
+  }
+
+  .booking-form {
+    padding: 22px 18px;
+  }
+
+  .trip-switch {
+    display: flex;
+    width: 100%;
+  }
+
+  .trip-btn {
+    flex: 1;
+    padding: 12px 10px;
+  }
+
+  .btn-clear,
+  .btn-find {
+    width: 100%;
+  }
+
+}

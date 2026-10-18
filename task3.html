@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reserve a Table | Bloom Café</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="task3.css">
+</head>
+
+<body>
+
+  <main class="container py-4 py-md-5">
+
+    <div class="reservation-card mx-auto">
+
+      <header class="reservation-header">
+        <p class="eyebrow">BLOOM CAFÉ</p>
+        <h1>Reserve a table</h1>
+        <p class="header-description">
+          A lovely table is waiting for you.
+          Complete the form to request your reservation.
+        </p>
+      </header>
+
+      <form
+        action="#"
+        method="get"
+        class="reservation-form"
+      >
+
+        <h2 class="section-title">
+          Your details
+        </h2>
+
+        <div class="row g-3 mb-4">
+
+          <div class="col-12 col-md-6">
+            <label for="customerName" class="form-label">
+              Your name
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="customerName"
+              name="customerName"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="email" class="form-label">
+              Email address
+            </label>
+
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="name@example.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="phone" class="form-label">
+              Phone number
+            </label>
+
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone"
+              placeholder="+7 701 234 56 78"
+              autocomplete="tel"
+              required
+            >
+          </div>
+
+        
+          <div class="col-12 col-md-6">
+            <label for="guests" class="form-label">
+              Number of guests
+            </label>
+
+            <input
+              type="number"
+              class="form-control"
+              id="guests"
+              name="guests"
+              min="1"
+              max="20"
+              step="1"
+              placeholder="2"
+              required
+            >
+          </div>
+
+        </div>
+
+        <h2 class="section-title">
+          Reservation details
+        </h2>
+
+        <div class="row g-3 mb-4">
+
+          <div class="col-12 col-md-6">
+            <label for="date" class="form-label">
+              Reservation date
+            </label>
+
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              required
+            >
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="meal" class="form-label">
+              Meal preference
+            </label>
+
+            <select
+              class="form-select"
+              id="meal"
+              name="meal"
+              required
+            >
+              <option value="" selected disabled>
+                Choose a meal
+              </option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+            </select>
+          </div>
+
+        </div>
+
+        <fieldset class="seating-section mb-4">
+
+          <legend class="form-label">
+            Seating preference
+          </legend>
+
+          <div class="d-flex flex-wrap gap-3">
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="seating"
+                id="inside"
+                value="inside"
+                required
+              >
+              <label class="form-check-label" for="inside">
+                Inside
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="seating"
+                id="terrace"
+                value="terrace"
+              >
+              <label class="form-check-label" for="terrace">
+                Terrace
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+        <div class="mb-4">
+          <label for="comments" class="form-label">
+            Special requests or comments
+          </label>
+
+          <textarea
+            class="form-control"
+            id="comments"
+            name="comments"
+            rows="4"
+            placeholder="Tell us about any special requests..."
+          ></textarea>
+        </div>
+
+        <div class="form-check mb-4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="terms"
+            name="terms"
+            value="accepted"
+            required
+          >
+
+          <label class="form-check-label" for="terms">
+            I agree to the reservation terms
+          </label>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-3">
+
+          <button
+            type="submit"
+            class="btn btn-reserve"
+          >
+            Reserve my table
+          </button>
+
+          <button
+            type="reset"
+            class="btn btn-clear"
+          >
+            Clear form
+          </button>
+
+        </div>
+
+        <p class="form-note mt-4">
+          Please note: submitting this form is a
+          reservation request, not a confirmed booking.
+        </p>
+
+      </form>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
