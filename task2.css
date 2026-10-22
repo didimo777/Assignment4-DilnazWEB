@@ -1,5 +1,7 @@
 
-
+/* =========================
+   COLORS
+========================= */
 
 :root {
   --primary: #0F6B5F;
@@ -9,13 +11,21 @@
   --border: #D9E6E1;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
   font-family: "Montserrat", sans-serif;
   background: var(--light);
   color: var(--dark);
   min-height: 100vh;
 }
 
+/* =========================
+   REGISTRATION CARD
+========================= */
 
 .registration-card {
   max-width: 850px;
@@ -25,7 +35,6 @@ body {
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(15, 107, 95, 0.12);
 }
-
 
 .form-header {
   background: var(--primary);
@@ -45,7 +54,6 @@ body {
   font-size: 14px;
 }
 
-
 .form-body {
   padding: 35px;
 }
@@ -59,6 +67,9 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
+/* =========================
+   LABELS AND FIELDS
+========================= */
 
 .form-label,
 legend.form-label {
@@ -70,7 +81,6 @@ legend.form-label {
 .required-star {
   color: #D93025;
 }
-
 
 .form-control,
 .form-select {
@@ -87,43 +97,81 @@ legend.form-label {
   box-shadow: 0 0 0 3px rgba(15, 107, 95, 0.12);
 }
 
+.form-check-label {
+  font-size: 13px;
+}
+
+.form-check-input {
+  cursor: pointer;
+  border-color: #A9BDB5;
+}
 
 .form-check-input:checked {
   background-color: var(--primary);
   border-color: var(--primary);
 }
 
-.form-check-label {
-  font-size: 13px;
-}
+/* =========================
+   VALIDATION
+========================= */
 
-
-.form-control:user-invalid,
-.form-select:user-invalid,
-.form-check-input:user-invalid {
-  border-color: #DC3545;
-}
-
-.form-control:user-valid,
-.form-select:user-valid {
-  border-color: #198754;
-}
-
-.form-control:user-invalid ~ .invalid-feedback,
-.form-select:user-invalid ~ .invalid-feedback,
-.form-check-input:user-invalid ~ .invalid-feedback {
-  display: block;
-}
-
+/* Hidden until an invalid field is used */
 .invalid-feedback {
+  display: none;
+  color: #dc3545;
   font-size: 12px;
   margin-top: 6px;
 }
 
-.form-check-input:user-invalid {
-  outline: 1px solid #DC3545;
+/* Invalid fields after interaction */
+.form-control:user-invalid,
+.form-select:user-invalid {
+  border: 2px solid #dc3545;
+  background-color: #fff5f5;
 }
 
+/* Valid fields after interaction */
+.form-control:user-valid,
+.form-select:user-valid {
+  border: 2px solid #198754;
+}
+
+/* Feedback for inputs, select and textarea */
+.form-control:user-invalid + .invalid-feedback,
+.form-select:user-invalid + .invalid-feedback {
+  display: block;
+}
+
+/* Experience level feedback */
+.experience-group:has(
+  input[name="experience"]:user-invalid
+) > .invalid-feedback {
+  display: block;
+}
+
+/* Keep radio buttons and checkboxes neutral */
+.form-check-input:user-invalid {
+  border-color: #A9BDB5;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Keep checked controls green */
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Agreement message without red checkbox */
+.agreement-group:has(
+  #agreement:user-invalid
+) > .invalid-feedback {
+  display: block;
+}
+
+/* =========================
+   HINTS
+========================= */
 
 .form-hint {
   color: #72837C;
@@ -131,6 +179,9 @@ legend.form-label {
   margin-top: 6px;
 }
 
+/* =========================
+   BUTTONS
+========================= */
 
 .btn-register {
   background: var(--accent);
@@ -161,38 +212,12 @@ legend.form-label {
   color: white;
 }
 
-
-
-
-
-@media (max-width: 767.98px) {
-
-  .form-header {
-    padding: 25px 20px;
-  }
-
-  .form-header h1 {
-    font-size: 21px;
-  }
-
-  .form-body {
-    padding: 22px 18px;
-  }
-
-  .btn-register,
-  .btn-reset {
-    width: 100%;
-  }
-
-}
-
-
 /* =========================
-   ASSIGNMENT NAVIGATION
+   NAVIGATION
 ========================= */
 
 .assignment-navbar {
-  background: #16302B;
+  background: var(--dark);
   padding: 16px 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
@@ -214,7 +239,7 @@ legend.form-label {
 }
 
 .nav-brand:hover {
-  color: #F2A93B;
+  color: var(--accent);
 }
 
 .nav-links {
@@ -235,17 +260,41 @@ legend.form-label {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
-  background: #0F6B5F;
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
+  background: var(--primary);
   color: white;
 }
 
 .nav-links a:focus-visible,
 .nav-brand:focus-visible {
-  outline: 3px solid #F2A93B;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 767.98px) {
+
+  .form-header {
+    padding: 25px 20px;
+  }
+
+  .form-header h1 {
+    font-size: 21px;
+  }
+
+  .form-body {
+    padding: 22px 18px;
+  }
+
+  .btn-register,
+  .btn-reset {
+    width: 100%;
+  }
+}
 
 @media (max-width: 575.98px) {
 
@@ -266,4 +315,3 @@ legend.form-label {
     font-size: 12px;
   }
 }
-

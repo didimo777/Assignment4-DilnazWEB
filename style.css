@@ -212,9 +212,8 @@ legend.form-label {
 }
 
 
-/* =========================
-   ASSIGNMENT NAVIGATION
-========================= */
+
+
 
 .assignment-navbar {
   background: #16302B;
@@ -290,3 +289,60 @@ legend.form-label {
     font-size: 12px;
   }
 }
+
+
+
+
+/* FORM VALIDATION */
+
+/* Red border for invalid fields */
+.form-control:user-invalid,
+.form-select:user-invalid {
+  border: 2px solid #dc3545;
+}
+
+/* Green border for valid fields */
+.form-control:user-valid,
+.form-select:user-valid {
+  border: 2px solid #198754;
+}
+
+/* Error messages for normal inputs */
+.form-control:user-invalid ~ .invalid-feedback,
+.form-select:user-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Error messages for floating labels */
+.form-floating:has(.form-control:user-invalid)
++ .invalid-feedback {
+  display: block;
+}
+
+/* Error messages for phone input */
+.input-group:has(.form-control:user-invalid)
++ .invalid-feedback {
+  display: block;
+}
+
+
+
+.form-check-input:user-valid {
+  border-color: #198754;
+}
+
+
+
+/* Carriage class error */
+fieldset:has(input[name="carriage"]:user-invalid)
+.invalid-feedback {
+  display: block;
+}
+
+/* Error text */
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 6px;
+}
+

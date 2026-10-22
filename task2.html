@@ -13,7 +13,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -22,24 +22,23 @@
 </head>
 
 <body>
-    
 
-<nav class="assignment-navbar" aria-label="Assignment navigation">
-  <div class="container nav-content">
+  <nav class="assignment-navbar"
+       aria-label="Assignment navigation">
+    <div class="container nav-content">
 
-    <a class="nav-brand" href="task1.html">
-      WEB ASSIGNMENT 4
-    </a>
+      <a class="nav-brand" href="task1.html">
+        WEB ASSIGNMENT 4
+      </a>
 
-    <div class="nav-links">
-      <a href="task1.html">Task 1</a>
-      <a href="task2.html">Task 2</a>
-      <a href="task3.html">Task 3</a>
+      <div class="nav-links">
+        <a href="task1.html">Task 1</a>
+        <a href="task2.html" aria-current="page">Task 2</a>
+        <a href="task3.html">Task 3</a>
+      </div>
+
     </div>
-
-  </div>
-</nav>
-
+  </nav>
 
   <main class="container py-4 py-md-5">
 
@@ -47,12 +46,10 @@
 
       <header class="form-header">
         <h1>AITU HACK 2026</h1>
-        <p>
-          Student Hackathon Registration
-        </p>
+        <p>Student Hackathon Registration</p>
       </header>
 
-      <form action="#" method="get" class="form-body">
+      <form action="#" method="post" class="form-body">
 
         <h2 class="section-title">
           Personal Information
@@ -74,10 +71,11 @@
               minlength="2"
               maxlength="40"
               autocomplete="name"
+              aria-describedby="fullNameError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="fullNameError">
               Enter a name with 2 to 40 characters.
             </div>
           </div>
@@ -94,10 +92,11 @@
               name="email"
               placeholder="student@astanait.edu.kz"
               autocomplete="email"
+              aria-describedby="emailError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="emailError">
               Please enter a valid email address.
             </div>
           </div>
@@ -116,15 +115,15 @@
               max="30"
               step="1"
               placeholder="18"
+              aria-describedby="ageError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="ageError">
               Age must be a whole number from 16 to 30.
             </div>
           </div>
 
-     
           <div class="col-12 col-md-6">
             <label for="teamSize" class="form-label">
               Team size <span class="required-star">*</span>
@@ -139,10 +138,11 @@
               max="4"
               step="1"
               placeholder="1-4 members"
+              aria-describedby="teamSizeError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="teamSizeError">
               Team size must be between 1 and 4.
             </div>
           </div>
@@ -155,7 +155,6 @@
 
         <div class="row g-3 mb-4">
 
-      
           <div class="col-12 col-md-6">
             <label for="track" class="form-label">
               Track <span class="required-star">*</span>
@@ -165,6 +164,7 @@
               class="form-select"
               id="track"
               name="track"
+              aria-describedby="trackError"
               required
             >
               <option value="" selected disabled>
@@ -176,7 +176,7 @@
               <option value="GameDev">GameDev</option>
             </select>
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="trackError">
               Please select a hackathon track.
             </div>
           </div>
@@ -193,15 +193,15 @@
               name="arrival"
               min="2026-11-20"
               max="2026-11-22"
+              aria-describedby="arrivalError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="arrivalError">
               Choose a date from November 20 to 22, 2026.
             </div>
           </div>
 
-        
           <div class="col-12 col-md-6">
             <label for="checkin" class="form-label">
               Check-in time <span class="required-star">*</span>
@@ -215,15 +215,15 @@
               min="09:00"
               max="18:00"
               step="1800"
+              aria-describedby="checkinError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="checkinError">
               Choose 09:00-18:00 in 30-minute intervals.
             </div>
           </div>
 
-    
           <div class="col-12 col-md-6">
             <label for="fee" class="form-label">
               Entry fee (KZT) <span class="required-star">*</span>
@@ -238,17 +238,18 @@
               max="5000"
               step="500"
               placeholder="1500"
+              aria-describedby="feeError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="feeError">
               Enter 0-5000 KZT in steps of 500.
             </div>
           </div>
 
         </div>
 
-        <fieldset class="mb-4">
+        <fieldset class="mb-4 experience-group">
           <legend class="form-label">
             Experience level
             <span class="required-star">*</span>
@@ -298,7 +299,7 @@
 
           </div>
 
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" id="experienceError">
             Please choose your experience level.
           </div>
         </fieldset>
@@ -320,10 +321,12 @@
               id="github"
               name="github"
               placeholder="https://github.com/username"
+              aria-describedby="githubError"
             >
 
-            <div class="invalid-feedback">
-              Enter a full URL starting with https://
+            <div class="invalid-feedback" id="githubError">
+              Enter a full URL, for example
+              https://github.com/username.
             </div>
           </div>
 
@@ -341,15 +344,15 @@
               maxlength="20"
               autocomplete="new-password"
               placeholder="8-20 characters"
+              aria-describedby="passwordError"
               required
             >
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="passwordError">
               Password must contain 8 to 20 characters.
             </div>
           </div>
 
-     
           <div class="col-12">
             <label for="motivation" class="form-label">
               Motivation <span class="required-star">*</span>
@@ -363,28 +366,31 @@
               minlength="50"
               maxlength="300"
               placeholder="Tell us why you want to join the hackathon..."
+              aria-describedby="motivationError motivationHint"
               required
             ></textarea>
 
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" id="motivationError">
               Write between 50 and 300 characters.
             </div>
 
-            <div class="form-hint">
+            <div class="form-hint" id="motivationHint">
               Minimum 50 characters, maximum 300.
             </div>
           </div>
 
         </div>
 
+      
+        <div class="form-check mb-4 agreement-group">
 
-        <div class="form-check mb-4">
           <input
             class="form-check-input"
             type="checkbox"
             id="agreement"
             name="agreement"
             value="accepted"
+            aria-describedby="agreementError"
             required
           >
 
@@ -393,7 +399,7 @@
             <span class="required-star">*</span>
           </label>
 
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" id="agreementError">
             You must agree to the rules.
           </div>
         </div>
@@ -415,7 +421,7 @@
       </form>
 
     </div>
-
+    
   </main>
 
 </body>

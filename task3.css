@@ -1,4 +1,8 @@
 
+/* =========================
+   COLORS
+========================= */
+
 :root {
   --primary: #526B5C;
   --primary-dark: #344B3C;
@@ -9,7 +13,6 @@
   --muted: #7A8A80;
   --border: #DDE5DC;
 }
-
 
 * {
   box-sizing: border-box;
@@ -22,6 +25,10 @@ body {
   background: var(--background);
   color: var(--text);
 }
+
+/* =========================
+   RESERVATION CARD
+========================= */
 
 .reservation-card {
   max-width: 850px;
@@ -72,11 +79,19 @@ body {
   margin-bottom: 22px;
 }
 
+/* =========================
+   FORM FIELDS
+========================= */
+
 .form-label,
 legend.form-label {
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 9px;
+}
+
+.required-star {
+  color: #D93025;
 }
 
 .form-control,
@@ -126,6 +141,66 @@ legend.form-label {
   padding: 18px;
 }
 
+.form-hint {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+/* =========================
+   VALIDATION AFTER INTERACTION
+========================= */
+
+.invalid-feedback {
+  display: none;
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* Invalid fields */
+.form-control:user-invalid,
+.form-select:user-invalid {
+  border: 2px solid #dc3545;
+  background-color: #fff5f5;
+}
+
+/* Valid fields */
+.form-control:user-valid,
+.form-select:user-valid {
+  border: 2px solid #198754;
+}
+
+/* Show feedback under invalid inputs */
+.form-control:user-invalid + .invalid-feedback,
+.form-select:user-invalid + .invalid-feedback {
+  display: block;
+}
+
+/* Seating radio group */
+.seating-section:has(
+  input[name="seating"]:user-invalid
+) > .invalid-feedback {
+  display: block;
+}
+
+/* Neutral radio and checkbox borders */
+.form-check-input:user-invalid {
+  border-color: #A6B8AA;
+  outline: none;
+}
+
+/* Terms checkbox feedback */
+.terms-group:has(
+  #terms:user-invalid
+) > .invalid-feedback {
+  display: block;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
 .btn-reserve {
   background: var(--primary);
   color: white;
@@ -162,42 +237,8 @@ legend.form-label {
   line-height: 1.7;
 }
 
-
-@media (max-width: 767.98px) {
-
-  .reservation-card {
-    border-radius: 16px;
-  }
-
-  .reservation-header {
-    padding: 28px 22px;
-  }
-
-  .reservation-header h1 {
-    font-size: 24px;
-  }
-
-  .reservation-form {
-    padding: 25px 20px;
-  }
-
-  .section-title {
-    font-size: 16px;
-  }
-
-}
-
-@media (max-width: 575.98px) {
-
-  .btn-reserve,
-  .btn-clear {
-    width: 100%;
-  }
-
-}
-
 /* =========================
-   ASSIGNMENT NAVIGATION
+   NAVIGATION
 ========================= */
 
 .assignment-navbar {
@@ -244,7 +285,8 @@ legend.form-label {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
   background: #0F6B5F;
   color: white;
 }
@@ -255,8 +297,39 @@ legend.form-label {
   outline-offset: 3px;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 767.98px) {
+
+  .reservation-card {
+    border-radius: 16px;
+  }
+
+  .reservation-header {
+    padding: 28px 22px;
+  }
+
+  .reservation-header h1 {
+    font-size: 24px;
+  }
+
+  .reservation-form {
+    padding: 25px 20px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+}
 
 @media (max-width: 575.98px) {
+
+  .btn-reserve,
+  .btn-clear {
+    width: 100%;
+  }
 
   .nav-content {
     flex-direction: column;

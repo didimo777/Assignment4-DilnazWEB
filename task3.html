@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>Reserve a Table | Bloom Café</title>
 
@@ -22,23 +23,22 @@
 
 <body>
 
+  <nav class="assignment-navbar"
+       aria-label="Assignment navigation">
+    <div class="container nav-content">
 
-<nav class="assignment-navbar" aria-label="Assignment navigation">
-  <div class="container nav-content">
+      <a class="nav-brand" href="task1.html">
+        WEB ASSIGNMENT 4
+      </a>
 
-    <a class="nav-brand" href="task1.html">
-      WEB ASSIGNMENT 4
-    </a>
+      <div class="nav-links">
+        <a href="task1.html">Task 1</a>
+        <a href="task2.html">Task 2</a>
+        <a href="task3.html" aria-current="page">Task 3</a>
+      </div>
 
-    <div class="nav-links">
-      <a href="task1.html">Task 1</a>
-      <a href="task2.html">Task 2</a>
-      <a href="task3.html">Task 3</a>
     </div>
-
-  </div>
-</nav>
-
+  </nav>
 
   <main class="container py-4 py-md-5">
 
@@ -46,18 +46,17 @@
 
       <header class="reservation-header">
         <p class="eyebrow">BLOOM CAFÉ</p>
+
         <h1>Reserve a table</h1>
+
         <p class="header-description">
           A lovely table is waiting for you.
           Complete the form to request your reservation.
         </p>
       </header>
 
-      <form
-        action="#"
-        method="get"
-        class="reservation-form"
-      >
+      <form action="#" method="get"
+            class="reservation-form">
 
         <h2 class="section-title">
           Your details
@@ -65,9 +64,10 @@
 
         <div class="row g-3 mb-4">
 
+          <!-- NAME -->
           <div class="col-12 col-md-6">
             <label for="customerName" class="form-label">
-              Your name
+              Your name <span class="required-star">*</span>
             </label>
 
             <input
@@ -76,14 +76,22 @@
               id="customerName"
               name="customerName"
               placeholder="Enter your full name"
+              minlength="2"
+              maxlength="60"
               autocomplete="name"
+              aria-describedby="nameError"
               required
             >
+
+            <div class="invalid-feedback" id="nameError">
+              Please enter a name with 2 to 60 characters.
+            </div>
           </div>
 
+          <!-- EMAIL -->
           <div class="col-12 col-md-6">
             <label for="email" class="form-label">
-              Email address
+              Email address <span class="required-star">*</span>
             </label>
 
             <input
@@ -93,13 +101,19 @@
               name="email"
               placeholder="name@example.com"
               autocomplete="email"
+              aria-describedby="emailError"
               required
             >
+
+            <div class="invalid-feedback" id="emailError">
+              Please enter a valid email address.
+            </div>
           </div>
 
+          <!-- PHONE -->
           <div class="col-12 col-md-6">
             <label for="phone" class="form-label">
-              Phone number
+              Phone number <span class="required-star">*</span>
             </label>
 
             <input
@@ -109,14 +123,21 @@
               name="phone"
               placeholder="+7 701 234 56 78"
               autocomplete="tel"
+              pattern="\+7[ ]?[0-9]{3}[ ]?[0-9]{3}[ ]?[0-9]{2}[ ]?[0-9]{2}"
+              title="Use +7 701 234 56 78"
+              aria-describedby="phoneError"
               required
             >
+
+            <div class="invalid-feedback" id="phoneError">
+              Enter a valid phone number, e.g. +7 701 234 56 78.
+            </div>
           </div>
 
-        
+          <!-- GUESTS -->
           <div class="col-12 col-md-6">
             <label for="guests" class="form-label">
-              Number of guests
+              Number of guests <span class="required-star">*</span>
             </label>
 
             <input
@@ -128,8 +149,13 @@
               max="20"
               step="1"
               placeholder="2"
+              aria-describedby="guestsError"
               required
             >
+
+            <div class="invalid-feedback" id="guestsError">
+              Enter a whole number from 1 to 20.
+            </div>
           </div>
 
         </div>
@@ -140,9 +166,10 @@
 
         <div class="row g-3 mb-4">
 
+          <!-- DATE -->
           <div class="col-12 col-md-6">
             <label for="date" class="form-label">
-              Reservation date
+              Reservation date <span class="required-star">*</span>
             </label>
 
             <input
@@ -150,19 +177,31 @@
               class="form-control"
               id="date"
               name="date"
+              min="2026-10-23"
+              aria-describedby="dateError"
               required
             >
+
+            <div class="invalid-feedback" id="dateError">
+              Please choose a valid reservation date.
+            </div>
+
+            <div class="form-hint">
+              Reservations are available from October 23, 2026.
+            </div>
           </div>
 
+          <!-- MEAL -->
           <div class="col-12 col-md-6">
             <label for="meal" class="form-label">
-              Meal preference
+              Meal preference <span class="required-star">*</span>
             </label>
 
             <select
               class="form-select"
               id="meal"
               name="meal"
+              aria-describedby="mealError"
               required
             >
               <option value="" selected disabled>
@@ -171,14 +210,20 @@
               <option value="lunch">Lunch</option>
               <option value="dinner">Dinner</option>
             </select>
+
+            <div class="invalid-feedback" id="mealError">
+              Please choose lunch or dinner.
+            </div>
           </div>
 
         </div>
 
+        <!-- SEATING -->
         <fieldset class="seating-section mb-4">
 
           <legend class="form-label">
             Seating preference
+            <span class="required-star">*</span>
           </legend>
 
           <div class="d-flex flex-wrap gap-3">
@@ -190,6 +235,7 @@
                 name="seating"
                 id="inside"
                 value="inside"
+                aria-describedby="seatingError"
                 required
               >
               <label class="form-check-label" for="inside">
@@ -204,6 +250,7 @@
                 name="seating"
                 id="terrace"
                 value="terrace"
+                aria-describedby="seatingError"
               >
               <label class="form-check-label" for="terrace">
                 Terrace
@@ -212,11 +259,16 @@
 
           </div>
 
+          <div class="invalid-feedback" id="seatingError">
+            Please select your seating preference.
+          </div>
+
         </fieldset>
 
+        <!-- COMMENTS -->
         <div class="mb-4">
           <label for="comments" class="form-label">
-            Special requests or comments
+            Special requests or comments (optional)
           </label>
 
           <textarea
@@ -224,38 +276,47 @@
             id="comments"
             name="comments"
             rows="4"
+            maxlength="500"
             placeholder="Tell us about any special requests..."
+            aria-describedby="commentsHint"
           ></textarea>
+
+          <div class="form-hint" id="commentsHint">
+            Maximum 500 characters.
+          </div>
         </div>
 
-        <div class="form-check mb-4">
+        <!-- TERMS -->
+        <div class="form-check mb-4 terms-group">
+
           <input
             class="form-check-input"
             type="checkbox"
             id="terms"
             name="terms"
             value="accepted"
+            aria-describedby="termsError"
             required
           >
 
           <label class="form-check-label" for="terms">
             I agree to the reservation terms
+            <span class="required-star">*</span>
           </label>
+
+          <div class="invalid-feedback" id="termsError">
+            Please agree to the reservation terms.
+          </div>
         </div>
 
+        <!-- BUTTONS -->
         <div class="d-flex flex-column flex-sm-row gap-3">
 
-          <button
-            type="submit"
-            class="btn btn-reserve"
-          >
+          <button type="submit" class="btn btn-reserve">
             Reserve my table
           </button>
 
-          <button
-            type="reset"
-            class="btn btn-clear"
-          >
+          <button type="reset" class="btn btn-clear">
             Clear form
           </button>
 
@@ -267,9 +328,7 @@
         </p>
 
       </form>
-
     </div>
-
   </main>
 
 </body>
